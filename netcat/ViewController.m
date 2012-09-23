@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "AsyncSocket.h"
 
-@interface ViewController ()
+@interface ViewController () <AsyncSocketDelegate>
+
+@property (retain) AsyncSocket *socket;
 
 @end
 
@@ -18,6 +21,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.socket = [[AsyncSocket alloc] initWithDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
