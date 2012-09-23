@@ -18,6 +18,8 @@
 		D09FD172160E95D000AA3894 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D09FD171160E95D000AA3894 /* Default-568h@2x.png */; };
 		D09FD175160E95D000AA3894 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09FD173160E95D000AA3894 /* MainStoryboard.storyboard */; };
 		D09FD178160E95D000AA3894 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09FD177160E95D000AA3894 /* ViewController.m */; };
+		D09FD181160E9A5000AA3894 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D09FD180160E9A5000AA3894 /* AsyncSocket.m */; };
+		D09FD183160E9A6100AA3894 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09FD182160E9A6100AA3894 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		D09FD174160E95D000AA3894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D09FD176160E95D000AA3894 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D09FD177160E95D000AA3894 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D09FD17F160E9A5000AA3894 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		D09FD180160E9A5000AA3894 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		D09FD182160E9A6100AA3894 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09FD183160E9A6100AA3894 /* CFNetwork.framework in Frameworks */,
 				D09FD15C160E95D000AA3894 /* UIKit.framework in Frameworks */,
 				D09FD15E160E95D000AA3894 /* Foundation.framework in Frameworks */,
 				D09FD160160E95D000AA3894 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +79,7 @@
 		D09FD15A160E95D000AA3894 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D09FD182160E9A6100AA3894 /* CFNetwork.framework */,
 				D09FD15B160E95D000AA3894 /* UIKit.framework */,
 				D09FD15D160E95D000AA3894 /* Foundation.framework */,
 				D09FD15F160E95D000AA3894 /* CoreGraphics.framework */,
@@ -83,6 +90,7 @@
 		D09FD161160E95D000AA3894 /* netcat */ = {
 			isa = PBXGroup;
 			children = (
+				D09FD17E160E9A5000AA3894 /* AsyncSocket */,
 				D09FD16A160E95D000AA3894 /* AppDelegate.h */,
 				D09FD16B160E95D000AA3894 /* AppDelegate.m */,
 				D09FD173160E95D000AA3894 /* MainStoryboard.storyboard */,
@@ -105,6 +113,15 @@
 				D09FD171160E95D000AA3894 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D09FD17E160E9A5000AA3894 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				D09FD17F160E9A5000AA3894 /* AsyncSocket.h */,
+				D09FD180160E9A5000AA3894 /* AsyncSocket.m */,
+			);
+			path = AsyncSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +193,7 @@
 				D09FD168160E95D000AA3894 /* main.m in Sources */,
 				D09FD16C160E95D000AA3894 /* AppDelegate.m in Sources */,
 				D09FD178160E95D000AA3894 /* ViewController.m in Sources */,
+				D09FD181160E9A5000AA3894 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
