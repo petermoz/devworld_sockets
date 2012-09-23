@@ -32,8 +32,8 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
     // Copy send buffer to receive 
-    NSString *text = textField.text;
-    self.receiveBuffer.text = [self.receiveBuffer.text stringByAppendingFormat:@"%@\n", text];
+    NSString *text = [textField.text stringByAppendingString:@"\n"];
+    [self.socket writeData:[text dataUsingEncoding:NSASCIIStringEncoding] withTimeout:-1 tag:0];
     
     [textField resignFirstResponder];
     textField.text = @"";
