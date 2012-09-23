@@ -30,7 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
     // Copy send buffer to receive 
     NSString *text = textField.text;
     self.receiveBuffer.text = [self.receiveBuffer.text stringByAppendingFormat:@"%@\n", text];
@@ -39,7 +39,6 @@
     textField.text = @"";
     return YES;
 }
-
 
 - (IBAction)connect:(id)sender {
     if(self.socket.isConnected)
@@ -50,11 +49,20 @@
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
     self.button.highlighted = YES;
+    [sock readDataToData:[AsyncSocket LFData] withTimeout:-1 tag:0];
 }
 
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock {
     self.button.highlighted = NO;
 }
+
+- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    NSString *text = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    self.receiveBuffer.text = [self.receiveBuffer.text stringByAppendingString:text];
+    
+    [sock readDataToData:[AsyncSocket LFData] withTimeout:-1 tag:0];
+}
+
 
 
 @end
