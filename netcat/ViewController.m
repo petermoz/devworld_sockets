@@ -26,4 +26,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    // Copy send buffer to receive 
+    NSString *text = textField.text;
+    self.receiveBuffer.text = [self.receiveBuffer.text stringByAppendingFormat:@"%@\n", text];
+    
+    [textField resignFirstResponder];
+    textField.text = @"";
+    return YES;
+}
+
+
+
+
 @end
