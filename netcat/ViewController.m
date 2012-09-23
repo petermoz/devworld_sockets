@@ -11,7 +11,7 @@
 
 @interface ViewController () <AsyncSocketDelegate>
 
-@property (retain) AsyncSocket *socket;
+@property (nonatomic, retain) AsyncSocket *socket;
 
 @end
 
@@ -42,7 +42,18 @@
 
 
 - (IBAction)connect:(id)sender {
-    NSLog(@"connect");
+    if(self.socket.isConnected)
+        [self.socket disconnect];
+    else
+        [self.socket connectToHost:@"172.20.10.6" onPort:12345 error:nil];
+}
+
+- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
+    self.button.highlighted = YES;
+}
+
+- (void)onSocketDidDisconnect:(AsyncSocket *)sock {
+    self.button.highlighted = NO;
 }
 
 
