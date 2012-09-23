@@ -31,20 +31,38 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="040-I6-yZF">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="263" id="upp-is-zyy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqC-8d-ofZ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connect:" destination="2" eventType="touchUpInside" id="wQf-mt-Wr9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jPC-Zj-IKN" firstAttribute="top" secondItem="h92-nR-b9h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0fY-sX-09d"/>
+                            <constraint firstItem="HqC-8d-ofZ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="18" id="Jgt-ql-OWj"/>
+                            <constraint firstAttribute="trailing" secondItem="HqC-8d-ofZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PI8-I8-tkI"/>
                             <constraint firstAttribute="trailing" secondItem="h92-nR-b9h" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="WRS-Ce-11n"/>
-                            <constraint firstItem="zfG-bp-qsX" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Zot-7J-U2w"/>
                             <constraint firstItem="h92-nR-b9h" firstAttribute="top" secondItem="zfG-bp-qsX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bEi-IN-pPz"/>
                             <constraint firstItem="040-I6-yZF" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iFG-ut-Bb0"/>
                             <constraint firstItem="jPC-Zj-IKN" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jwz-mg-Smz"/>
-                            <constraint firstItem="040-I6-yZF" firstAttribute="top" secondItem="jPC-Zj-IKN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="v9l-js-cuz"/>
+                            <constraint firstItem="HqC-8d-ofZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qgQ-ny-02z"/>
                             <constraint firstAttribute="bottom" secondItem="040-I6-yZF" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="wS0-63-5vy"/>
+                            <constraint firstItem="040-I6-yZF" firstAttribute="top" secondItem="jPC-Zj-IKN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wmA-K9-W0p"/>
                             <constraint firstAttribute="trailing" secondItem="040-I6-yZF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xQY-Y0-gyh"/>
                             <constraint firstItem="h92-nR-b9h" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="yGX-Z6-9YP"/>
                             <constraint firstItem="zfG-bp-qsX" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zah-Do-tVO"/>
@@ -52,6 +70,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="button" destination="HqC-8d-ofZ" id="75n-y7-vL6"/>
                         <outlet property="receiveBuffer" destination="040-I6-yZF" id="PNz-qp-Lys"/>
                         <outlet property="sendBuffer" destination="h92-nR-b9h" id="FWg-Te-bER"/>
                     </connections>
@@ -67,6 +86,8 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="connect:"/>
+                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="receiveBuffer" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="sendBuffer" candidateClass="UITextField"/>
             </relationships>

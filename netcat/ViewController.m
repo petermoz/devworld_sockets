@@ -37,6 +37,9 @@
 }
 
 
+- (IBAction)connect:(id)sender {
+    NSLog(@"connect");
+}
 
 
 @end

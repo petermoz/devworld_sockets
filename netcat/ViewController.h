@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *sendBuffer;
 @property (weak, nonatomic) IBOutlet UITextView *receiveBuffer;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
+- (IBAction)connect:(id)sender;
 
 @end
